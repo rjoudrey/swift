@@ -22,7 +22,7 @@ class MyVisitor : public DeclVisitor<MyVisitor> {
 public:
   void visit(const Decl *D) {
       auto kind = D->getDescriptiveKind();
-      if (kind != DescriptiveDeclKind::Var) {
+      if (kind != DescriptiveDeclKind::Var && kind != DescriptiveDeclKind::Let) {
           return;
       }
       auto V = (VarDecl *)D;
